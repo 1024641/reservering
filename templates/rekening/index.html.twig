@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rekening index{% endblock %}
+
+{% block body %}
+    <div class="rand">
+    <h1>Openstaande rekeningen</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Producten</th>
+                <th>Reservering</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rekening in rekenings %}
+            <tr>
+                <td>{{ rekening.id }}</td>
+                <td>{{ rekening.producten }}</td>
+                <td>{{ rekening.reservering }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('rekening_edit', {'id': rekening.id}) }}">Open rekening</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-primary" href="{{ path('rekening_new') }}">Nieuwe rekening</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Rekening{% endblock %}
+
+{% block body %}
+    <h1>Create new Rekening</h1>
+
+    {{ include('rekening/_form.html.twig') }}
+
+    <a href="{{ path('rekening_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservering{% endblock %}
+
+{% block body %}
+
+    <div class="rand">
+
+
+            {#<body><br><br><div data-component-maps="" style="min-height:240px;min-width:240px;position:relative"><iframe frameborder="0" src="https://maps.google.com/maps?&amp;q=Bleiswijkseweg 37&amp;z=17&amp;t=q&amp;output=embed" width="100" height="100" style="width:100%;height:100%;position:absolute;left:0px;pointer-events:none"></iframe><div class="row" style=""><div class="col-sm-4"></div><div class="col-sm-4 col-5"></div><div class="col-sm-4"></div></div></div>#}
+            {#</body>#}
+
+
+
+
+{% if app.user%}
+        <br><br>
+
+        <div class="title"> Hallo {{ app.user }}, maak een keuze uit de volgende opties om door te gaan.</div>
+
+            <section class="our-webcoderskull padding-lg">
+
+                            <ul class="row">
+                                    <li class="col-12 col-md-6 col-lg-3">
+                                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                                    <figure><img src="img/klanten.jpg" class="img-responsive" alt=""></figure>
+                                                    <h3><a href="/klant">Klanten</a></h3>
+                                                    <p>Bekijk klanten en pas deze aan.</p>
+                                                    <ul class="follow-us clearfix">
+                                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                            </div>
+                                    </li>
+                                    <li class="col-12 col-md-6 col-lg-3">
+                                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                                    <figure><img src="img/agenda.jpg" class="img-responsive" alt=""></figure>
+                                                    <h3><a href="/reservering">Reserveringen</a></h3>
+                                                    <p>Reserveringen bekijken en aanpassen.</p>
+                                                    <ul class="follow-us clearfix">
+                                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                            </div>
+                                    </li>
+                                    <li class="col-12 col-md-6 col-lg-3">
+                                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                                    <figure><img src="img/person.jpg" class="img-responsive" alt=""></figure>
+                                                    <h3><a href="/user">Medewerkers</a></h3>
+                                                    <p>Gebruikers van dit systeem beheren.</p>
+                                                    <ul class="follow-us clearfix">
+                                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                            </div>
+                                    </li>
+                                    <li class="col-12 col-md-6 col-lg-3">
+                                            <div class="cnt-block equal-hight" style="height: 349px;">
+                                                    <figure><img src="img/product.jpg" class="img-responsive" alt=""></figure>
+                                                    <h3><a href="/producten/">Producten</a></h3>
+                                                    <p>Producten aanpassen en toevoegen.</p>
+                                                    <ul class="follow-us clearfix">
+                                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                            </div>
+                                    </li>
+                            </ul>
+                    </div>
+            </section>
+
+
+
+
+{% else %}
+
+    Welkom op het reserveringssyteem, om toegang te krijgen in dit syteem dient u in te loggen.
+    <br><br>Klik hier om in te loggen.
+    <br><a href="/login" class="btn btn-sm btn-success">Inloggen</a>
+
+
+
+
+
+
+
+    {% endif %}
+
+
+
+
+            <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <meta name="description" content="">
+                    <meta name="author" content="">
+                    <link rel="icon" href="../../../../favicon.ico">
+
+                    <title>Narrow Jumbotron Template for Bootstrap</title>
+
+                    <!-- Bootstrap core CSS -->
+                    <link href="../../css/editor.css" rel="stylesheet">
+
+                    <!-- Custom styles for this template -->
+                    <link href="narrow-jumbotron.css" rel="stylesheet">
+            </head>
+
+
+
+    </div>
+
+
+{% endblock %}

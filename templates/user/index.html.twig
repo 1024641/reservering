@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <div class="rand">
+    <h1>Medewerkers</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Gebruikersnaam</th>
+                <th>Email</th>
+                <th>Actief</th>
+                <th>Laatste login</th>
+                <th>Rol</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.enabled ? 'Ja' : 'Nee' }}</td>
+                <td>{{ user.lastLogin ? user.lastLogin|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('user_show', {'id': user.id}) }}">Meer informatie</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn-primary btn-sm btn" href="/register">Nieuw account maken</a>
+    </div>{% endblock %}

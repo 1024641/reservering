@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Klant index{% endblock %}
+
+{% block body %}
+    <div class="rand">
+    <h1>Klanten</h1>    <a class="btn btn-sm btn-primary plek" href="{{ path('klant_new') }}">Nieuwe klant</a>
+
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Email</th>
+                <th>Telefoonnummer</th>
+                <th>Opties</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for klant in klants %}
+            <tr>
+                <td>{{ klant.id }}</td>
+                <td>{{ klant.naam }}</td>
+                <td>{{ klant.email }}</td>
+                <td>{{ klant.telNr }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('klant_edit', {'id': klant.id}) }}">Bewerken</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-primary" href="{{ path('klant_new') }}">Nieuwe klant</a>
+
+    </div>
+        {% endblock %}

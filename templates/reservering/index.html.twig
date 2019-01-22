@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservering index{% endblock %}
+
+{% block body %}
+    <div class="rand">
+    <h1>Reserveringen</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datum</th>
+                <th>Tijd</th>
+                <th>Aantal personen</th>
+                <th>Tafel</th>
+                <th>Klant</th>
+                <th>Medewerker</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservering in reserverings %}
+            <tr>
+                <td>{{ reservering.id }}</td>
+                <td>{{ reservering.date ? reservering.date|date('d-m-Y') : '' }}</td>
+                <td>{{ reservering.tijd ? reservering.tijd|date('H:i:s') : '' }}</td>
+                <td>{{ reservering.aantalPersonen }}</td>
+                <td>{{ reservering.stoel }}</td>
+                <td>{{ reservering.klant }}</td>
+                <td>{{ reservering.user }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('reservering_edit', {'id': reservering.id}) }}">Bewerken</a>
+                    <a class="btn btn-sm btn-info" href="{{ path('reservering_edit', {'id': reservering.id}) }}">Activeren</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-primary" href="{{ path('reservering_new') }}">Nieuwe reservering</a>
+    </div>
+        {% endblock %}

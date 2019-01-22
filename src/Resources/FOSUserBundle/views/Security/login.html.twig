@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    <div class="rand margin">
+    {% if app.user %}
+
+        <div class="alreadylogin">
+            <h3>U bent al ingelogd</h3>
+            <br><p><a class="btn btn-sm btn-primary" href="/" role="button">Ga naar de homepage</a></p>
+        </div>
+    {% else %}
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        {#openform#}
+        <body id="LoginForm">
+
+            <div class="panel">
+                <h2>Login</h2>
+                <p>Vul hier uw inloggegevens in</p>
+            </div>
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="_username"
+                           placeholder="Gebruikersnaam" value="{{ last_username }}"
+                           required="required"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="_password"
+                           placeholder="Wachtwoord" required="required"/>
+                </div>
+
+                <input style="margin-right: 20px" type="submit" class="btn btn-success login login-submit" id="_submit" name="_submit"
+                       value="{{ 'Inloggen'|trans }}"/>
+                <a class="btn btn-primary" href="{{ path('fos_user_resetting_request') }}">Wachtwoord vergeten?</a>
+
+            </form>
+        </body>
+        </div>
+
+
+        {#endform#}
+    {% endif %}
+{% endblock body %}

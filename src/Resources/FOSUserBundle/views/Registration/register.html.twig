@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+    <body id="LoginForm">
+    <div class="rand margin">
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Registreren</h2>
+                </div>
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register reg'}}) }}
+                {{ form_widget(form, {'attr': {'class': 'form_control'}}) }}
+                <div>
+                    <input type="submit"
+                           class="btn btn-lg btn-primary btn-block subm"
+                           id="_submit"
+                           name="_submit"
+                           value="{{ 'Registreer'|trans }}"/>
+                </div>
+                {{ form_end(form) }}
+        {% else %}
+        <p class="rand rood">Sorry, u heeft niet de rechten om een gebruiker aan te maken...</p>
+            <a class="btn btn-sm btn-primary rand" href="{{ path('user_index') }}">Terug</a>
+
+{% endif %}
+    </div>
+    </div>
+
+
+</div>
+    </body>
+{% endblock %}

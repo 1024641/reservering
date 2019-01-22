@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reservering{% endblock %}
+
+
+{% block body %}
+
+    <div class="rand margin">
+    <h1>Nieuwe reservering</h1>
+    <br>
+    <p>Deze reservering wordt gemaakt door {{ app.user }}</p>
+
+    {{ include('reservering/_form.html.twig') }}<br>
+
+    <a class="btn btn-sm btn-primary" href="{{ path('reservering_index') }}">Terug</a>
+    </div>{% endblock %}

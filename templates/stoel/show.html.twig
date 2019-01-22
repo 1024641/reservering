@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stoel{% endblock %}
+
+{% block body %}
+    <h1>Stoel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stoel.id }}</td>
+            </tr>
+            <tr>
+                <th>Max_personen</th>
+                <td>{{ stoel.maxPersonen }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stoel_index') }}">back to list</a>
+
+    <a href="{{ path('stoel_edit', {'id': stoel.id}) }}">edit</a>
+
+    {{ include('stoel/_delete_form.html.twig') }}
+{% endblock %}
