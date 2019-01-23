@@ -128,6 +128,4 @@ class Reservering
         return $this;
     }
 
-
-
 }

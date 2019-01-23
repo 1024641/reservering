@@ -3,9 +3,11 @@
 {% block title %}New Bon{% endblock %}
 
 {% block body %}
-    <h1>Create new Bon</h1>
+    <div class="rand margin">
+    <h1>Nieuwe rekening</h1>
 
     {{ include('bon/_form.html.twig') }}
 
-    <a href="{{ path('bon_index') }}">back to list</a>
+    <a class="btn btn-sm btn-primary" href="{{ path('bon_index') }}">back to list</a>
+    </div>
 {% endblock %}

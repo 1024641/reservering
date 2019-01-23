@@ -3,10 +3,18 @@
 {% block title %}Reservering index{% endblock %}
 
 {% block body %}
+{% block scripts %}
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+{% endblock %}
     <div class="rand">
     <h1>Reserveringen</h1>
 
-    <table class="table">
+    <table id="myTable" class="table table-striped display">
         <thead>
             <tr>
                 <th>Id</th>
@@ -30,8 +38,8 @@
                 <td>{{ reservering.klant }}</td>
                 <td>{{ reservering.user }}</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="{{ path('reservering_edit', {'id': reservering.id}) }}">Bewerken</a>
-                    <a class="btn btn-sm btn-info" href="{{ path('reservering_edit', {'id': reservering.id}) }}">Activeren</a>
+                    <a class="btn btn-sm btn-primary"   href="{{ path('reservering_edit', {'id': reservering.id}) }}">Bewerken</a>
+                    <a class="btn btn-sm btn-info"      href="{{ path('bon_new')}}">Activeren</a>
                 </td>
             </tr>
         {% else %}
@@ -44,4 +52,4 @@
 
     <a class="btn btn-sm btn-primary" href="{{ path('reservering_new') }}">Nieuwe reservering</a>
     </div>
-        {% endblock %}
+{% endblock %}
